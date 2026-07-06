@@ -1,0 +1,14 @@
+title: mayurg.in
+description: MBBS Notes & Medical Resources
+
+url: ""
+baseurl: ""
+
+markdown: kramdown
+
+permalink: pretty
+
+plugins: []
+
+exclude:
+  - README.md

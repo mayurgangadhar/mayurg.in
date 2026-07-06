@@ -1,0 +1,45 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    sans-serif;
+
+    background:#fafafa;
+    color:#222;
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:50px;
+
+    line-height:1.7;
+
+}
+
+h1{
+
+    margin-bottom:20px;
+
+}
+
+h2{
+
+    margin-top:30px;
+    margin-bottom:10px;
+
+}
+
+ul{
+
+    margin-left:25px;
+
+}

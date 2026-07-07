@@ -3,13 +3,6 @@ layout: default
 title: Home
 ---
 
-# 👋 Welcome to mayurg.in
+{% include hero.html %}
 
-This website is currently under development.
-
-## Coming Soon
-
-- 📚 MBBS Notes
-- 📄 Previous Year Papers
-- 📖 Books
-- 🩺 Internship Resources
+{% include subjects.html %}

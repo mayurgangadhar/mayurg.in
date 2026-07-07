@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<h1>{{ page.subject.name }}</h1>
+
+<div class="card-grid">
+
+{% assign notes =
+site.data.notes
+| where:"subject",page.subject.id %}
+
+{% for note in notes %}
+
+{% include note-card.html note=note %}
+
+{% endfor %}
+
+</div>

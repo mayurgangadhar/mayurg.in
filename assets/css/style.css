@@ -5,41 +5,182 @@
 }
 
 body{
-
-    font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    sans-serif;
-
-    background:#fafafa;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:#f5f7fb;
     color:#222;
+}
 
-    max-width:900px;
-
+main{
+    max-width:1100px;
     margin:auto;
+    padding:40px 20px;
+}
 
-    padding:50px;
+/* Navbar */
 
-    line-height:1.7;
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 40px;
+
+    background:white;
+
+    position:sticky;
+    top:0;
+
+    border-bottom:1px solid #eee;
+}
+
+.logo a{
+    text-decoration:none;
+    font-size:24px;
+    font-weight:700;
+    color:#111;
+}
+
+.nav-links{
+    display:flex;
+    gap:24px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:#0066ff;
+}
+
+/* Hero */
+
+.hero{
+    text-align:center;
+    padding:80px 0;
+}
+
+.hero h1{
+    font-size:64px;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    font-size:22px;
+    color:#666;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+}
+
+.button{
+    padding:14px 26px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.primary{
+    background:#0066ff;
+    color:white;
+}
+
+.secondary{
+    background:#efefef;
+    color:#111;
+}
+
+/* Subjects */
+
+.subjects{
+    margin-top:70px;
+}
+
+.subjects h2{
+    margin-bottom:25px;
+}
+
+.card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:24px;
+    border-radius:16px;
+    text-decoration:none;
+    color:#111;
+    font-size:18px;
+    font-weight:600;
+
+    transition:.25s;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 24px rgba(0,0,0,.15);
+}
+
+/* Footer */
+
+footer{
+    margin-top:80px;
+    text-align:center;
+    padding:40px;
+    color:#777;
+}.search-box{
+
+    margin:40px auto;
+
+    max-width:600px;
 
 }
 
-h1{
+.search-box input{
 
-    margin-bottom:20px;
+    width:100%;
+
+    padding:18px 24px;
+
+    border:none;
+
+    border-radius:16px;
+
+    font-size:18px;
+
+    outline:none;
+
+    background:white;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}.note{
+
+max-width:900px;
+
+margin:auto;
+
+padding:40px 20px;
 
 }
 
-h2{
+.note h1{
 
-    margin-top:30px;
-    margin-bottom:10px;
+margin-bottom:10px;
 
 }
 
-ul{
+.note p{
 
-    margin-left:25px;
+margin-bottom:18px;
 
 }

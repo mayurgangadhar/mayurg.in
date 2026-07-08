@@ -1,19 +1,16 @@
 title: mayurg.in
-description: MBBS Notes & Medical Resources
 
-url: ""
+description: Medical Resources for MBBS Students
+
+url: https://mayurg.in
+
 baseurl: ""
+
+lang: en
+
+timezone: Asia/Kolkata
 
 markdown: kramdown
 
-permalink: pretty
-
-collections:
-  notes:
-    output: true
-    permalink: /notes/:name/
-
-plugins: []
-
-exclude:
-  - README.md
+plugins:
+  - jekyll-sitemap

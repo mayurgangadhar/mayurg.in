@@ -2,21 +2,27 @@
 layout: default
 title: Subjects
 ---
+<section class="page-header">
 
-# 📚 Subjects
+<h1>
 
-<div class="card-grid">
+📚 Subjects
+
+</h1>
+
+<p>
+
+Choose a subject to access theory and practical resources.
+
+</p>
+
+</section>
+
+<div class="subjects-grid">
 
 {% for subject in site.data.subjects %}
 
-<a class="card"
-   href="/subjects/{{ subject.id }}/">
-
-{{ subject.icon }}
-
-{{ subject.name }}
-
-</a>
+{% include subject-card.html subject=subject %}
 
 {% endfor %}
 

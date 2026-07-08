@@ -1,0 +1,29 @@
+- title: Cleft Lip
+  subject: ent
+  section: theory
+  label: Note
+  pdf: https://example.com/cleft-lip.pdf
+
+- title: Little's Area
+  subject: ent
+  section: theory
+  label: Note
+  pdf: https://example.com/littles-area.pdf
+
+- title: ENT PYQ 2025
+  subject: ent
+  section: theory
+  label: PYQ
+  pdf: https://example.com/ent-pyq-2025.pdf
+
+- title: ENT Instruments
+  subject: ent
+  section: practical
+  label: Spotter
+  pdf: https://example.com/ent-instruments.pdf
+
+- title: CSOM Long Case
+  subject: ent
+  section: practical
+  label: Clinical Case
+  pdf: https://example.com/csom-long-case.pdf

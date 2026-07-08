@@ -1,39 +1,27 @@
-- id: medicine
-  name: General Medicine
-  icon: 🫀
-  color: "#EF4444"
-
-- id: surgery
-  name: General Surgery
-  icon: 🔪
-  color: "#3B82F6"
-
 - id: ent
   name: ENT
   icon: 👂
-  color: "#10B981"
 
 - id: ophthalmology
   name: Ophthalmology
-  icon: 👁
-  color: "#F59E0B"
+  icon: 👁️
 
-- id: pediatrics
-  name: Pediatrics
-  icon: 👶
-  color: "#EC4899"
+- id: medicine
+  name: Medicine
+  icon: 🫀
 
-- id: obg
-  name: OBG & Gyn
-  icon: 🤰
-  color: "#8B5CF6"
+- id: surgery
+  name: Surgery
+  icon: 🔪
 
 - id: orthopedics
   name: Orthopedics
   icon: 🦴
-  color: "#06B6D4"
 
-- id: community
-  name: Community Medicine
-  icon: 🌍
-  color: "#84CC16"
+- id: obg
+  name: OBG
+  icon: 🤰
+
+- id: paediatrics
+  name: Paediatrics
+  icon: 👶

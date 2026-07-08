@@ -1,0 +1,21 @@
+{% assign docs = site.data.resources
+    | where:"subject",page.subject_id
+    | where:"section",page.section %}
+
+<section class="page-header">
+
+<h1>
+
+{{ page.subject }}
+
+</h1>
+
+<p>
+
+{{ page.section | capitalize }}
+
+• {{ docs.size }} Resources
+
+</p>
+
+</section>

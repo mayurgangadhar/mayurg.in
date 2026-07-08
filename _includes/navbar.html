@@ -1,17 +1,24 @@
 <nav class="navbar">
 
+    <a class="logo" href="/">mayurg.in</a>
+
     <div class="nav-links">
 
-<a href="/">Home</a>
+        <a href="/"
+           class="{% if page.url == '/' %}active{% endif %}">
+            Home
+        </a>
 
-<a href="/library/">Library</a>
+        <a href="/subjects/"
+           class="{% if page.url contains '/subjects' %}active{% endif %}">
+            Subjects
+        </a>
 
-<a href="/subjects/">Subjects</a>
+        <a href="/about/"
+           class="{% if page.url contains '/about' %}active{% endif %}">
+            About
+        </a>
 
-<a href="/books/">Books</a>
-
-<a href="/pyqs/">PYQs</a>
-
-</div>
+    </div>
 
 </nav>

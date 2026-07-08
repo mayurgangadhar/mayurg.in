@@ -1,0 +1,27 @@
+<a class="pdf-card"
+   href="{{ include.doc.pdf }}"
+   target="_blank">
+
+    <div class="pdf-left">
+
+        <div class="pdf-icon">
+            📄
+        </div>
+
+        <div class="pdf-info">
+
+            <h3>{{ include.doc.title }}</h3>
+
+            <span class="badge badge-{{ include.doc.label | downcase | replace: ' ','-' }}">
+                {{ include.doc.label }}
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="pdf-arrow">
+        →
+    </div>
+
+</a>

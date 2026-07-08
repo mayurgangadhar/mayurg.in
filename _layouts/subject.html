@@ -2,18 +2,56 @@
 layout: default
 ---
 
+<section class="page-header">
+
 <h1>{{ page.subject.name }}</h1>
 
-<div class="card-grid">
+<p>
 
-{% assign notes =
-site.data.notes
-| where:"subject",page.subject.id %}
+Choose what you want to study.
 
-{% for note in notes %}
+</p>
 
-{% include note-card.html note=note %}
+</section>
 
-{% endfor %}
+<div class="category-grid">
+
+<a class="category-card"
+href="/subjects/{{ page.subject.id }}/theory/">
+
+<div class="category-icon">
+
+📘
+
+</div>
+
+<h2>Theory</h2>
+
+<p>
+
+Notes, PYQs and other study material.
+
+</p>
+
+</a>
+
+<a class="category-card"
+href="/subjects/{{ page.subject.id }}/practical/">
+
+<div class="category-icon">
+
+🩺
+
+</div>
+
+<h2>Practicals</h2>
+
+<p>
+
+Clinical cases, spotters, viva and record book.
+
+</p>
+
+</a>
 
 </div>

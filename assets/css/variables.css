@@ -1,0 +1,19 @@
+:root{
+
+--bg:#F8FAFC;
+--surface:#FFFFFF;
+
+--primary:#2563EB;
+
+--text:#111827;
+--muted:#6B7280;
+
+--border:#E5E7EB;
+
+--radius:22px;
+
+--shadow:0 10px 30px rgba(0,0,0,.08);
+
+--max-width:1280px;
+
+}

@@ -1,0 +1,25 @@
+<section>
+
+<h2 class="section-title">
+
+Browse Subjects
+
+</h2>
+
+<p class="section-subtitle">
+
+Choose a subject to access theory notes and practical resources.
+
+</p>
+
+<div class="subjects-grid">
+
+{% for subject in site.data.subjects %}
+
+{% include subject-card.html subject=subject %}
+
+{% endfor %}
+
+</div>
+
+</section>

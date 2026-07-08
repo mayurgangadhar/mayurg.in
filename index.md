@@ -5,4 +5,8 @@ title: Home
 
 {% include hero.html %}
 
-{% include subjects.html %}
+{% include stats.html %}
+
+{% include subjects-grid.html %}
+
+{% include cta.html %}

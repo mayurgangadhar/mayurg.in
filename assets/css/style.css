@@ -1022,3 +1022,46 @@ color:var(--primary);
 font-weight:700;
 
 }
+/* ---------- PDF Cards ---------- */
+
+.pdf-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:600;
+    color:#2563eb;
+}
+
+.open-text{
+    font-size:.9rem;
+}
+
+.pdf-card{
+    transition:all .25s ease;
+}
+
+.pdf-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+}
+
+.empty-state{
+    text-align:center;
+    padding:80px 20px;
+    background:#fff;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+}
+
+.empty-icon{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.empty-state h2{
+    margin:0 0 10px;
+}
+
+.empty-state p{
+    color:#6b7280;
+}

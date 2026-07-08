@@ -1,6 +1,7 @@
 <a class="pdf-card"
    href="{{ include.doc.pdf }}"
-   target="_blank">
+   target="_blank"
+   rel="noopener">
 
     <div class="pdf-left">
 
@@ -12,16 +13,26 @@
 
             <h3>{{ include.doc.title }}</h3>
 
-            <span class="badge badge-{{ include.doc.label | downcase | replace: ' ','-' }}">
+            {% if include.doc.label %}
+            <span class="badge badge-{{ include.doc.label | downcase | replace:' ','-' }}">
                 {{ include.doc.label }}
             </span>
+            {% endif %}
 
         </div>
 
     </div>
 
-    <div class="pdf-arrow">
-        →
+    <div class="pdf-right">
+
+        <span class="open-text">
+            Open PDF
+        </span>
+
+        <span class="pdf-arrow">
+            →
+        </span>
+
     </div>
 
 </a>

@@ -1,21 +1,40 @@
-{% assign docs = site.data.resources
-    | where:"subject",page.subject_id
-    | where:"section",page.section %}
+---
+layout: default
+---
+
+{% assign docs = site.data.resources[page.subject_id]
+    | where:"section", page.section %}
 
 <section class="page-header">
 
-<h1>
+    <h1>{{ page.subject }}</h1>
 
-{{ page.subject }}
-
-</h1>
-
-<p>
-
-{{ page.section | capitalize }}
-
-• {{ docs.size }} Resources
-
-</p>
+    <p>{{ page.section | capitalize }} • {{ docs.size }} Resources</p>
 
 </section>
+
+{% if docs.size > 0 %}
+
+<div class="pdf-grid">
+
+    {% for doc in docs %}
+
+        {% include pdf-card.html doc=doc %}
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="empty-state">
+
+    <div class="empty-icon">🚧</div>
+
+    <h2>Resources Coming Soon</h2>
+
+    <p>We're currently adding resources for this section.</p>
+
+</div>
+
+{% endif %}

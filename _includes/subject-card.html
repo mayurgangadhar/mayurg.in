@@ -1,26 +1,15 @@
-<a class="subject-card"
-href="/subjects/{{ include.subject.id }}/">
+{% assign docs = site.data.resources[include.subject.id] %}
 
-<div class="subject-icon">
+<a class="subject-card" href="/subjects/{{ include.subject.id }}/">
 
-{{ include.subject.icon }}
+    <div class="subject-icon">
+        {{ include.subject.icon }}
+    </div>
 
-</div>
+    <h3>{{ include.subject.name }}</h3>
 
-<div class="subject-content">
-
-<h3>
-
-{{ include.subject.name }}
-
-</h3>
-
-<p>
-
-Theory & Practical
-
-</p>
-
-</div>
+    <p class="resource-count">
+        {{ docs.size }} Resources
+    </p>
 
 </a>

@@ -1,12 +1,40 @@
----
-layout: default
-title: Home
----
+<section class="hero">
 
-{% include hero.html %}
+    <h1>Medical Resources</h1>
 
-{% include stats.html %}
+    <p>
+        Organized study material for Final Year MBBS students.
+        Theory notes, practical resources and previous papers in one place.
+    </p>
 
-{% include subjects-grid.html %}
+    <a class="hero-button" href="/subjects/">
+        Browse Subjects →
+    </a>
 
-{% include cta.html %}
+</section>
+
+<section class="subjects-preview">
+
+    <h2>Subjects</h2>
+
+    <div class="subject-grid">
+
+        {% for subject in site.data.subjects %}
+
+        <a class="subject-card" href="/subjects/{{ subject.id }}/">
+
+            <div class="subject-icon">
+
+                {{ subject.icon }}
+
+            </div>
+
+            <h3>{{ subject.name }}</h3>
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+</section>

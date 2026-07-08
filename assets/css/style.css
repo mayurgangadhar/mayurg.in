@@ -1065,3 +1065,45 @@ font-weight:700;
 .empty-state p{
     color:#6b7280;
 }
+.hero{
+    max-width:850px;
+    margin:70px auto;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:650px;
+    margin:0 auto 35px;
+    font-size:1.15rem;
+    color:#6b7280;
+    line-height:1.7;
+}
+
+.hero-button{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s;
+}
+
+.hero-button:hover{
+    transform:translateY(-3px);
+}
+
+.subjects-preview{
+    margin-top:80px;
+}
+
+.subjects-preview h2{
+    text-align:center;
+    margin-bottom:40px;
+}

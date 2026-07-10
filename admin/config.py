@@ -1,0 +1,7 @@
+ACCOUNT_ID = "72a7b6e719f33729d5c96f5a4016dfb3"
+ACCESS_KEY_ID = "98b0fedbc9ace87160cdad32c4b8b9f1"
+SECRET_ACCESS_KEY = "0107199d1202fb581939b8c2e7e4c32cc8bbea8eb4e64800465ea240d4583e3e"
+
+BUCKET_NAME = "mayurg-study-material"
+
+CUSTOM_DOMAIN = "https://assets.mayurg.in"

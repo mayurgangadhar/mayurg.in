@@ -1,6 +1,6 @@
 ---
-layout: resources
-subject: Orthopedics
-subject_id: orthopedics
-section: theory
+layout: subject
+subject:
+  name: Orthopedics
+  id: orthopedics
 ---

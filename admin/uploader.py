@@ -97,10 +97,11 @@ class Uploader:
         self.section_var.set("theory")
 
         tk.OptionMenu(
-            self.root,
-            self.section_var,
-            "theory",
-            "practical"
+           self.root,
+           self.section_var,
+           "theory",
+           "practical",
+           "cases"
         ).pack(pady=10)
 
         self.upload_button = tk.Button(
@@ -155,7 +156,10 @@ class Uploader:
 
         filename += ".pdf"
 
-        remote_key = f"{subject}/{section}/{filename}"
+        if section == "cases":
+          remote_key = f"{subject}/practical/cases/{filename}"
+        else:
+          remote_key = f"{subject}/{section}/{filename}"
 
         try:
 

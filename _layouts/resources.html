@@ -11,6 +11,14 @@ layout: default
 
     <p>{{ page.section | capitalize }} • {{ docs.size }} Resources</p>
 
+    {% if page.subject_id == "ent" and page.section == "practical" %}
+        <p>
+            <a class="hero-button" href="/subjects/ent/practical/cases/">
+                📂 Cases
+            </a>
+        </p>
+    {% endif %}
+
 </section>
 
 {% if docs.size > 0 %}

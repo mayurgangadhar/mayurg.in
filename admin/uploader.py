@@ -137,44 +137,7 @@ class Uploader:
         self.title_entry.delete(0, tk.END)
         self.title_entry.insert(0, title)
     
-    def upload(self):
 
-        if self.pdf_path == "":
-
-            print("Choose a PDF first.")
-            return
-
-        title = self.title_entry.get().strip()
-
-        subject = self.subject_var.get()
-
-        section = self.section_var.get()
-
-        filename = title.lower()
-        filename = filename.replace(" ", "-")
-        filename = filename.replace("'", "")
-
-        filename += ".pdf"
-
-        if section == "cases":
-          remote_key = f"{subject}/practical/cases/{filename}"
-        else:
-          remote_key = f"{subject}/{section}/{filename}"
-
-        try:
-
-            url = self.upload_to_r2(
-                self.pdf_path,
-                remote_key
-            )
-
-            print("✅ Uploaded Successfully!")
-
-            print(url)
-
-        except Exception as e:
-
-            print(e)
 
     def upload_to_r2(self, local_file, remote_key):
 
@@ -266,7 +229,10 @@ class Uploader:
             .replace("'", "")
         ) + ".pdf"
 
-    
+        if section == "cases":
+           remote_key = f"{subject}/practical/cases/{filename}"
+        else:
+           remote_key = f"{subject}/{section}/{filename}"
 
         try:
 

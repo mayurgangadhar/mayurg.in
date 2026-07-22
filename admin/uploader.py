@@ -4,6 +4,7 @@ from pathlib import Path
 import yaml
 import boto3
 import subprocess
+import re
 import config
 
 
@@ -13,58 +14,47 @@ class Uploader:
 
         self.root = tk.Tk()
 
-        self.root.title("mayurg.in Uploader")
+        self.root.title("mayurg.in Bulk Uploader")
 
-        self.root.geometry("700x500")
+        self.root.geometry("700x420")
 
         self.root.resizable(False, False)
 
-        self.pdf_path = ""
+        self.pdf_paths = []
 
         self.build_ui()
 
         self.root.mainloop()
 
+
     def build_ui(self):
 
         tk.Label(
             self.root,
-            text="mayurg.in Uploader",
+            text="mayurg.in Bulk Uploader",
             font=("Helvetica", 22, "bold")
         ).pack(pady=(20, 5))
 
         tk.Label(
             self.root,
-            text="Upload study resources",
+            text="Upload multiple study resources",
             fg="gray"
         ).pack(pady=(0, 20))
 
         tk.Button(
             self.root,
-            text="Choose PDF",
-            command=self.choose_pdf,
-            width=20
+            text="Choose PDFs",
+            width=20,
+            command=self.choose_pdfs
         ).pack()
 
         self.file_label = tk.Label(
             self.root,
-            text="No PDF Selected",
+            text="No PDFs Selected",
             fg="gray"
         )
 
         self.file_label.pack(pady=15)
-
-        tk.Label(
-            self.root,
-            text="Title"
-        ).pack()
-
-        self.title_entry = tk.Entry(
-            self.root,
-            width=60
-        )
-
-        self.title_entry.pack(pady=10)
 
         tk.Label(
             self.root,
@@ -97,47 +87,36 @@ class Uploader:
         self.section_var.set("theory")
 
         tk.OptionMenu(
-           self.root,
-           self.section_var,
-           "theory",
-           "practical",
-           "cases"
+            self.root,
+            self.section_var,
+            "theory",
+            "practical",
+            "cases"
         ).pack(pady=10)
 
-        self.upload_button = tk.Button(
+        tk.Button(
             self.root,
-            text="Upload Resource",
+            text="Upload",
             width=20,
             height=2,
             command=self.upload
-        )
+        ).pack(pady=20)
 
-        self.upload_button.pack(pady=20)
 
-    def choose_pdf(self):
+    def choose_pdfs(self):
 
-        file = filedialog.askopenfilename(
+        files = filedialog.askopenfilenames(
             filetypes=[("PDF Files", "*.pdf")]
         )
 
-        if not file:
+        if not files:
             return
 
-        self.pdf_path = file
+        self.pdf_paths = list(files)
 
-        filename = Path(file).name
-
-        self.file_label.config(text=filename)
-
-        title = Path(file).stem
-
-        title = title.replace("_", " ")
-        title = title.replace("-", " ")
-
-        self.title_entry.delete(0, tk.END)
-        self.title_entry.insert(0, title)
-    
-
+        self.file_label.config(
+            text=f"{len(files)} PDF(s) Selected"
+        )    
 
     def upload_to_r2(self, local_file, remote_key):
 
@@ -159,14 +138,39 @@ class Uploader:
         )
 
         return f"{config.CUSTOM_DOMAIN}/{remote_key}"
-    
-    def update_yaml(self, title, subject, section, url):
 
-        yaml_file = Path(__file__).resolve().parent.parent / "_data" / "resources" / f"{subject}.yml"
+
+    def clean_filename(self, title):
+
+        filename = title.lower()
+
+        filename = filename.replace(" ", "-")
+
+        filename = re.sub(r"[^a-z0-9-]", "", filename)
+
+        filename = re.sub(r"-+", "-", filename)
+
+        filename = filename.strip("-")
+
+        return filename + ".pdf"
+
+
+    def load_yaml(self, subject):
+
+        yaml_file = (
+            Path(__file__).resolve().parent.parent
+            / "_data"
+            / "resources"
+            / f"{subject}.yml"
+        )
 
         if yaml_file.exists():
 
-            with open(yaml_file, "r", encoding="utf-8") as f:
+            with open(
+                yaml_file,
+                "r",
+                encoding="utf-8"
+            ) as f:
 
                 data = yaml.safe_load(f) or []
 
@@ -174,89 +178,106 @@ class Uploader:
 
             data = []
 
-        data.append({
+        return yaml_file, data
 
-            "title": title,
 
-            "section": section,
+    def save_yaml(self, yaml_file, data):
 
-            "label": section.capitalize(),
-
-            "pdf": url
-
-        })
-
-        with open(yaml_file, "w", encoding="utf-8") as f:
+        with open(
+            yaml_file,
+            "w",
+            encoding="utf-8"
+        ) as f:
 
             yaml.dump(
                 data,
                 f,
                 allow_unicode=True,
                 sort_keys=False
-            )
+            )   
 
     def git_push(self):
 
-        subprocess.run(
-            ["git", "add", "."],
-            cwd=Path(__file__).resolve().parent.parent
-        )
+        repo = Path(__file__).resolve().parent.parent
+
+        subprocess.run(["git", "add", "."], cwd=repo)
 
         subprocess.run(
-            ["git", "commit", "-m", "Add new study resource"],
-            cwd=Path(__file__).resolve().parent.parent
+            ["git", "commit", "-m", "Bulk upload resources"],
+            cwd=repo
         )
 
-        subprocess.run(
-            ["git", "push"],
-            cwd=Path(__file__).resolve().parent.parent
-        )
+        subprocess.run(["git", "push"], cwd=repo)
+
+
     def upload(self):
 
-        if self.pdf_path == "":
-            print("Choose a PDF first.")
-            return
+        if not self.pdf_paths:
 
-        title = self.title_entry.get().strip()
+            print("Choose PDFs first.")
+
+            return
 
         subject = self.subject_var.get()
 
         section = self.section_var.get()
 
-        filename = (
-            title.lower()
-            .replace(" ", "-")
-            .replace("'", "")
-        ) + ".pdf"
+        yaml_file, data = self.load_yaml(subject)
 
-        if section == "cases":
-           remote_key = f"{subject}/practical/cases/{filename}"
-        else:
-           remote_key = f"{subject}/{section}/{filename}"
+        for pdf_path in self.pdf_paths:
 
-        try:
+            title = Path(pdf_path).stem
 
-            url = self.upload_to_r2(
-                self.pdf_path,
-                remote_key
-            )
+            filename = self.clean_filename(title)
 
-            self.update_yaml(
-                title,
-                subject,
-                section,
-                url
-            )
+            if section == "cases":
 
-            self.git_push()
+                remote_key = (
+                    f"{subject}/practical/cases/{filename}"
+                )
 
-            print("Uploaded Successfully!")
+            else:
 
-            print(url)
+                remote_key = (
+                    f"{subject}/{section}/{filename}"
+                )
 
-        except Exception as e:
+            try:
 
-            print(e)
+                url = self.upload_to_r2(
+                    pdf_path,
+                    remote_key
+                )
+
+                data.append({
+                    "title": title,
+                    "section": section,
+                    "label": section.capitalize(),
+                    "pdf": url
+                })
+
+                print(f"✓ Uploaded: {title}")
+
+            except Exception as e:
+
+                print(f"✗ Failed: {title}")
+
+                print(e)
+
+        self.save_yaml(
+            yaml_file,
+            data
+        )
+
+        self.git_push()
+
+        self.file_label.config(
+            text=f"Uploaded {len(self.pdf_paths)} PDF(s)"
+        )
+
+        print("Finished uploading all PDFs.")
 
 
-Uploader()
+if __name__ == "__main__":
+
+    Uploader()

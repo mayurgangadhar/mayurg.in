@@ -1,3 +1,8 @@
+---
+layout: default
+title: Home
+---
+
 <section class="hero">
 
     <h1>Medical Resources</h1>

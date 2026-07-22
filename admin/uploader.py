@@ -266,7 +266,7 @@ class Uploader:
             .replace("'", "")
         ) + ".pdf"
 
-        remote_key = f"{subject}/{section}/{filename}"
+    
 
         try:
 

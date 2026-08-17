@@ -22,7 +22,15 @@ section: theory
 
     <table>
 
+        <colgroup>
+            <col class="number-column">
+            <col class="topic-column">
+            <col class="number-column">
+            <col class="topic-column">
+        </colgroup>
+
         <thead>
+
             <tr>
                 <th colspan="2">Internal Medicine Paper 1</th>
                 <th colspan="2">Internal Medicine Paper 2</th>
@@ -34,6 +42,7 @@ section: theory
                 <th>No.</th>
                 <th>Topic</th>
             </tr>
+
         </thead>
 
         <tbody>

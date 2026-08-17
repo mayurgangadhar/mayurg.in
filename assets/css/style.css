@@ -1130,34 +1130,43 @@ font-weight:700;
 }
 
 .medicine-paper-split {
-    max-width: 1100px;
-    margin: 0 auto 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto 40px;
     overflow-x: auto;
 }
 
 .medicine-paper-split table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: #ffffff;
+    table-layout: fixed;
+}
+
+.medicine-paper-split .number-column {
+    width: 6%;
+}
+
+.medicine-paper-split .topic-column {
+    width: 44%;
 }
 
 .medicine-paper-split th,
 .medicine-paper-split td {
     border: 1px solid #d1d5db;
     padding: 10px 12px;
-    text-align: left;
     vertical-align: top;
+    line-height: 1.45;
+    overflow-wrap: break-word;
 }
 
 .medicine-paper-split th {
-    font-weight: 700;
     text-align: center;
+    font-weight: 700;
+    background: #f8fafc;
 }
 
-.medicine-paper-split th:first-child,
-.medicine-paper-split th:nth-child(3),
 .medicine-paper-split td:first-child,
 .medicine-paper-split td:nth-child(3) {
-    width: 45px;
     text-align: center;
 }

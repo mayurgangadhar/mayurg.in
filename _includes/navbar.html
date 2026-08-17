@@ -7,12 +7,16 @@
         <a href="/"
            class="{% if page.url == '/' %}active{% endif %}">
             🏠 Home
-
         </a>
 
         <a href="/subjects/"
            class="{% if page.url contains '/subjects' %}active{% endif %}">
             📚 Subjects
+        </a>
+
+        <a href="/coffee/"
+           class="{% if page.url contains '/coffee' %}active{% endif %}">
+            ☕ Buy Me a Coffee
         </a>
 
         <a href="/about/"

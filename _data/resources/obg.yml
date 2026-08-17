@@ -38,3 +38,19 @@
   section: practical
   label: Practical
   pdf: https://assets.mayurg.in/obg/practical/specimens.pdf
+- title: GYN PYQs
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/obg/theory/gyn-pyqs.pdf
+- title: GYNAE_PAKKAPASS
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/obg/theory/gynaepakkapass.pdf
+- title: OBS PYQs
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/obg/theory/obs-pyqs.pdf
+- title: OBS_PAKKAPASS
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/obg/theory/obspakkapass.pdf

@@ -50,3 +50,19 @@
   section: practical
   label: Practical
   pdf: https://assets.mayurg.in/surgery/practical/random.pdf
+- title: PAKKA PASS Part1
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/surgery/theory/pakka-pass-part1.pdf
+- title: PAKKA PASS Part2
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/surgery/theory/pakka-pass-part2.pdf
+- title: SURGERY1_PYQs
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/surgery/theory/surgery1pyqs.pdf
+- title: SURGERY2_PYQs
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/surgery/theory/surgery2pyqs.pdf

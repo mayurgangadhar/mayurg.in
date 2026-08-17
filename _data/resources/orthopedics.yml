@@ -26,3 +26,11 @@
   section: theory
   label: Theory
   pdf: https://assets.mayurg.in/orthopedics/theory/qp-analysis.pdf
+- title: ORTHO_PAKKAPASS
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/orthopedics/theory/orthopakkapass.pdf
+- title: ORTHO_PYQs
+  section: theory
+  label: Theory
+  pdf: https://assets.mayurg.in/orthopedics/theory/orthopyqs.pdf
